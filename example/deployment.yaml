@@ -1,0 +1,23 @@
+# Criacao do deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example
+  namespace: example
+  labels:
+    app: example
+    equipe: astin-02
+spec:
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: example
+          image: gcr.io/google-samples/hello-app:1.0
+          ports:
+            - containerPort: 8080

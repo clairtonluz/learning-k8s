@@ -1,0 +1,14 @@
+# Criacao do servico
+kind: Service
+apiVersion: v1
+metadata:
+  name: example2-service
+  namespace: example
+spec:
+  ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: example2
