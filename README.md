@@ -1,17 +1,17 @@
 # Learning K8S
 
-## Creating a deployment
+# Inicializar minikube
+
+[Minikube Readme](MINIKUBE.md)
+
+## Creating example
+
+* `-k` bellow is because I using [kustomizer](https://kustomizer.dev/). 
+* if you are using macOS you need open another terminal e run `sudo minikube tunnel` to allow minikube use the ports `80` and `443`
 
 ```shell
-kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
-kubectl get deployment web
-kubectl expose deployment web --type=NodePort --port=8080
-kubectl get service web
-minikube service web --url
+kubectl apply -k example
 ```
 
-
-## Creating a Ingress
-```shell
-kubectl apply -f https://k8s.io/examples/service/networking/example-ingress.yaml
-```
+edit you `etc/hosts` and add the follow line `127.0.0.1       hello-world.local`
+now access [http://hello-world.local](http://hello-world.local) and [http://hello-world.local/v2](http://hello-world.local/v2)
